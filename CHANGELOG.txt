@@ -1,0 +1,7 @@
+- 01/11/2011 < Edoardo Tenani >:
+  + forked from https://github.com/danorton/slpjq
+  + fixed bug in slpjq.module, line 170
+    the slpjq_form_user_register_alter() overriding was affecting also the
+    admin/user/user/create form, making impossible to register users via
+    web interface.
+  + added CHANGELOG
