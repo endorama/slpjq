@@ -168,9 +168,11 @@ function slpjq_form_user_login_block_alter(&$form, &$form_state) {
  * @see slpjq_form_user_register_validate()
  */
 function slpjq_form_user_register_alter(&$form, &$form_state) {
-  $form['submit']['#value'] = variable_get('slpjq_create_button_text', '');
-  $form['#action'] = url('user/register', array('query' => drupal_get_destination()));
-  $form['#validate'][] = 'slpjq_form_user_register_validate';
+  if ( $form["#action"] != "/admin/user/user/create" ) {
+    $form['submit']['#value'] = variable_get('slpjq_create_button_text', '');
+    $form['#action'] = url('user/register', array('query' => drupal_get_destination()));
+    $form['#validate'][] = 'slpjq_form_user_register_validate';
+  }
 }
 /* @} Hook functions */
 
